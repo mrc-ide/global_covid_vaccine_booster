@@ -28,7 +28,7 @@ vacc_start <- "1/1/2021"
 vaccine_doses <- c(2,3)
 max_coverage <- 0.9
 age_groups_covered <- 15
-age_groups_covered_d3 <- c(5, 9, 15)
+age_groups_covered_d3 <- c(5, 15)
 seeding_cases <- 10
 vacc_per_week <- 0.05
 ab_model_infection <- TRUE
@@ -70,7 +70,7 @@ scenarios <- expand_grid(income_group = income_group,
                          vfr_time1 = vfr_time1,
                          vfr_time2 = vfr_time2)  %>%
   filter((vaccine_doses == 2 & age_groups_covered_d3 == 15 ) | (vaccine_doses == 3) ) %>%
-  filter(R0_t3_in == "8/1/2021" | (R0_t3_in == "10/1/2021" & (age_groups_covered_d3 %in% c(9,15))) | (R0_t3_in == "3/1/2022" & age_groups_covered_d3 == 15) | (R0_t3_in == "3/2/2022" & age_groups_covered_d3 == 15)) %>%
+  filter(R0_t3_in == "8/1/2021" | (R0_t3_in == "10/1/2021" & (age_groups_covered_d3 %in% c(5,15))) | (R0_t3_in == "3/1/2022" & age_groups_covered_d3 == 15) | (R0_t3_in == "3/2/2022" & age_groups_covered_d3 == 15)) %>%
   unique()
 
 scenarios$scenario <- 1:nrow(scenarios)

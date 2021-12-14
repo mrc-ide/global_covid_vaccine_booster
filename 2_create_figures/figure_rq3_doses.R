@@ -22,7 +22,7 @@ df1 <- df1 %>%
                              if_else(Rt_lift_t == "Nov '21 lift", as.Date("2021-11-01"), 
                                                                           if_else(Rt_lift_t == "April '22 lift", as.Date("2022-04-01"), as.Date("2022-12-01")))))
 # plot total doses against Rt lifting to check timing
-ggplot(data = filter(df1, max_Rt_omicron == 7.5), aes(x = as.Date(date), y = vaccines_t / target_pop)) +
+ggplot(data = filter(df_summarise, max_Rt_omicron == 7.5), aes(x = as.Date(date), y = vaccines_t / target_pop)) +
   geom_line() +
   geom_line(aes(x = as.Date(date), y = Rt), col = "red") +
   facet_grid(Rt_lift_t ~ strategy_name) +

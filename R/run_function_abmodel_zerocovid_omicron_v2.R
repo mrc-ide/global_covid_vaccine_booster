@@ -69,7 +69,11 @@ run_scenario_zerocovid <-
     } else {
       rt <-    c(1.1,   1.1,   0.2,   0.2,   max_Rt, max_Rt, max_Rt_omicron) 
     }
-
+# 
+#     if (R0_t3 == as.Date(x = "3/2/2022", format = "%m/%d/%Y")){
+#       rt <-    c(1.1,   1.1,   0.2,   0.2,   0.2, 0.2, max_Rt_omicron)
+#       
+#     }
     rt_out <- safir::interpolate_rt(dates = dates, rt = rt, max_date = tmax_date)
     
     vacc_start <- as.Date(x = vacc_start, format = "%m/%d/%Y")
